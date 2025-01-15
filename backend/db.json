@@ -1,6 +1,27 @@
 {
   "opinions": [
     {
+      "id": 1736945726369,
+      "votes": 0,
+      "userName": "Ankush",
+      "title": "Learn React",
+      "body": "it will help you to get your first job"
+    },
+    {
+      "id": 1736940322144,
+      "votes": 4,
+      "userName": "Ankush",
+      "title": "New Features",
+      "body": "you have to update react 19."
+    },
+    {
+      "id": 1736938758679,
+      "votes": 0,
+      "userName": "Ankush",
+      "title": "React is great",
+      "body": "i loved it, you should learn it"
+    },
+    {
       "id": 1,
       "userName": "Maximilian Schwarzmüller",
       "title": "Do yourself a favor and learn React!",

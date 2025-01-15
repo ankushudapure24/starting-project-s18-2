@@ -37,18 +37,39 @@ export function OpinionsContextProvider({ children }) {
     setOpinions((prevOpinions) => [savedOpinion, ...prevOpinions]);
   }
 
-  function upvoteOpinion(id) {
-    setOpinions((prevOpinions) => {
-      return prevOpinions.map((opinion) => {
-        if (opinion.id === id) {
-          return { ...opinion, votes: opinion.votes + 1 };
-        }
-        return opinion;
-      });
-    });
-  }
+ async function upvoteOpinion(id) {
+   const response = await fetch(
+     "http://localhost:3000/opinions/" + id + "/upvote",
+     {
+       method: "POST",
+     }
+   );
 
-  function downvoteOpinion(id) {
+   if (!response.ok) {
+     return;
+   }
+   setOpinions((prevOpinions) => {
+     return prevOpinions.map((opinion) => {
+       if (opinion.id === id) {
+         return { ...opinion, votes: opinion.votes + 1 };
+       }
+       return opinion;
+     });
+   });
+ }
+
+  async function downvoteOpinion(id) {
+    const response = await fetch(
+      "http://localhost:3000/opinions/" + id + "/downvote",
+      {
+        method: "POST",
+      }
+    );
+
+    if (!response.ok) {
+      return;
+    }
+
     setOpinions((prevOpinions) => {
       return prevOpinions.map((opinion) => {
         if (opinion.id === id) {
